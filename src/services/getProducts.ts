@@ -1,19 +1,15 @@
 import { Product, ProductsResponse } from '@/types/product';
 
-export async function getProducts(): Promise<Product[]> {
-  try {
-    const res = await fetch('https://dummyjson.com/products', {
-      next: { revalidate: 3600 },
-    });
-
-    if (!res.ok) throw new Error('Failed to fetch');
-
-    const data: ProductsResponse = await res.json();
-    return data.products;
-  } catch (error) {
-    console.error(error);
+export async function getProducts(searchQuery: string = '') {
+  if (!searchQuery) {
     return [];
   }
+  
+  const response = await fetch(`https://dummyjson.com/products/search?q=${searchQuery}`, {
+    cache: 'no-store'
+  });
+  const data = await response.json();
+  return data.products;
 }
 
 export type { Product, ProductsResponse };
