@@ -3,26 +3,11 @@ import { Product } from "@/types/product";
 import ProductAttributes from "@/components/products/ProductAttributes";
 import { notFound } from "next/navigation";
 
-type Props = {
-  params: {
-    id: string;
-  };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
-async function getProduct(id: string): Promise<Product> {
-  try {
-    const res = await fetch(`https://dummyjson.com/products/${id}`);
-    if (!res.ok) {
-      notFound();
-    }
-    return res.json();
-  } catch (error) {
-    notFound();
-  }
-}
-
-export default async function ProductDetails({ params }: Props) {
+export default async function ProductDetails({
+  params,
+}: {
+  params: { id: string };
+}) {
   const product = await getProduct(params.id);
   return (
     <div className="flex flex-col items-center justify-center p-6">
@@ -80,4 +65,16 @@ export default async function ProductDetails({ params }: Props) {
       </div>
     </div>
   );
+}
+
+async function getProduct(id: string): Promise<Product> {
+  try {
+    const res = await fetch(`https://dummyjson.com/products/${id}`);
+    if (!res.ok) {
+      notFound();
+    }
+    return res.json();
+  } catch (error) {
+    notFound();
+  }
 }
