@@ -1,11 +1,11 @@
 import type { Product } from "@/types/product";
 import ProductCard from "./ProductCard";
 
-interface ProductGridProps {
+interface ProductListProps {
   products: Product[];
 }
 
-export default function ProductGrid({ products }: ProductGridProps) {
+export default function ProductList({ products }: ProductListProps) {
   return (
     <div className="flex flex-wrap justify-center gap-6">
       {products.map((product) => (

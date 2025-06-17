@@ -5,7 +5,7 @@ import { getProducts } from "@/services/getProducts";
 import type { Product } from "@/types/product";
 import SearchSection from "@/components/products/ProductSearch";
 import NoResults from "@/components/ui/NoResults";
-import ProductGrid from "@/components/products/ProductGrid";
+import ProductList from "@/components/products/ProductList";
 
 export default function Products() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -36,7 +36,7 @@ export default function Products() {
         {searchQuery && products.length === 0 ? (
           <NoResults />
         ) : (
-          <ProductGrid products={products} />
+          <ProductList products={products} />
         )}
       </div>
     </div>

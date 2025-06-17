@@ -16,9 +16,9 @@ const ProductCard = ({ product }: { product: Product }) => (
       </div>
     </div>
 
-    <h2 className="text-xl font-medium text-nhc-blue mb-2 line-clamp-2 h-[3em]">
+    <p className="text-xl font-medium text-nhc-blue mb-2 line-clamp-2 h-[3em]">
       {product.title}
-    </h2>
+    </p>
 
     <p className="text-neutral-500 mb-4 line-clamp-2 h-[3em]">
       {product.description}

@@ -1,14 +1,22 @@
 import Image from "next/image";
 import { Product } from "@/types/product";
 import ProductAttributes from "@/components/products/ProductAttributes";
+import { notFound } from "next/navigation";
 
 interface Props {
   params: { id: string };
 }
 
 async function getProduct(id: string): Promise<Product> {
-  const res = await fetch(`https://dummyjson.com/products/${id}`);
-  return res.json();
+  try {
+    const res = await fetch(`https://dummyjson.com/products/${id}`);
+    if (!res.ok) {
+      notFound();
+    }
+    return res.json();
+  } catch (error) {
+    notFound();
+  }
 }
 
 export default async function ProductDetails({ params }: Props) {

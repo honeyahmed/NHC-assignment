@@ -19,12 +19,13 @@ export default function Navbar() {
             priority
           />
         </Link>
-        <ul className="flex items-center lg:gap-16 gap-4 font-abel ">
+      <nav>
+      <ul className="flex items-center lg:gap-16 gap-4 font-abel ">
           <li>
             <Link
               href="/"
               className={`hover:text-nhc-blue ${
-                pathname === "/" || /^\/\d+$/.test(pathname) ? "text-nhc-blue " : ""
+                "text-nhc-blue"
               }`}
             >
               Products
@@ -41,7 +42,8 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
-      </div>
+      </nav>
+</div>
     </div>
   );
 }

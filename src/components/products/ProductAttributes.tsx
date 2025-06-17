@@ -20,27 +20,27 @@ const ProductAttributes = ({
   <div className="flex flex-col-reverse lg:flex-row lg:items-center lg:justify-between px-2 py-4 font-medium">
     <ul className="leading-7">
       <li>
-        <span>Price:</span>
+        <span>Price : </span>
         <span className="text-nhc-blue">${price}</span>
       </li>
       <li className="flex items-center gap-1">
-        <span>Rating:</span> <RatingStars rating={rating} />
+        <span>Rating : </span> <RatingStars rating={rating} />
       </li>
       <li>
-        <span>Brand:</span>
+        <span>Brand : </span>
         <span className="text-nhc-blue">{brand}</span>
       </li>
     </ul>
     <ul className="leading-7">
       <li>
-        <span>Discount Percentage:</span>
+        <span>Discount Percentage : </span>
         <span className="text-nhc-blue">{discountPercentage}</span>
       </li>
       <li>
-        <span>Stock:</span> <span className="text-nhc-blue">{stock}</span>
+        <span>Stock : </span> <span className="text-nhc-blue">{stock}</span>
       </li>
       <li>
-        <span>Category:</span>
+        <span>Category : </span>
         <span className="text-nhc-blue">{category}</span>
       </li>
     </ul>
