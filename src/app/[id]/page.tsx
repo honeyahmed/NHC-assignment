@@ -3,9 +3,12 @@ import { Product } from "@/types/product";
 import ProductAttributes from "@/components/products/ProductAttributes";
 import { notFound } from "next/navigation";
 
-interface Props {
-  params: { id: string };
-}
+type Props = {
+  params: {
+    id: string;
+  };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
 async function getProduct(id: string): Promise<Product> {
   try {
