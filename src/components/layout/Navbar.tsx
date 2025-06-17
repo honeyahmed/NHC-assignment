@@ -25,7 +25,7 @@ export default function Navbar() {
             <Link
               href="/"
               className={`hover:text-nhc-blue ${
-                "text-nhc-blue"
+                pathname === "/" || /^\/\d+$/.test(pathname) ? "text-nhc-blue" : ""
               }`}
             >
               Products
