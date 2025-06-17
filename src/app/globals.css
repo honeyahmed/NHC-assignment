@@ -4,7 +4,8 @@
 @theme {
   --color-nhc-blue: #285F9D;
   --color-footer-bg:#292759;
-  --color-footer-border:#F1F1F1;
+  --color-light-gray:#F1F1F1;
+  --color-dark-gray:#7F7F7F
 }
 :root {
     font-family: var(--font-inter), sans-serif;

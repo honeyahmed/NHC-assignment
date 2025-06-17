@@ -39,6 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable}`}>
       <body
+        suppressHydrationWarning
         className={`${inter.variable} ${abel.variable} ${geistSans.variable} ${geistMono.variable} antialiased flex flex-col `}
       >
         <Navbar /> <main className="flex-1 w-full min-h-[calc(100vh-100px)]">{children}</main>

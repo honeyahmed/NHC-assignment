@@ -8,7 +8,7 @@ interface ProductSearchProps {
 
 export default function ProductSearch({ searchQuery, onSearchChange, resultsCount }: ProductSearchProps) {
   return (
-    <div className="w-full max-w-3xl mb-10">
+    <div className="w-full max-w-3xl mb-10 lg:px-0 px-4">
       <h4 className="text-lg text-nhc-blue mb-3 text-left font-medium">
         Search products by keyword
       </h4>

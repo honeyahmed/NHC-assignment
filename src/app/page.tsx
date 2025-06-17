@@ -25,14 +25,14 @@ export default function Products() {
   }, [searchQuery]);
 
   return (
-    <div className="w-full flex flex-col items-center justify-center min-h-[calc(100vh-100px)] px-2 sm:px-4 py-4">
+    <div className="w-full flex flex-col items-center justify-center min-h-[calc(100vh-100px)] py-10">
       <SearchSection
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         resultsCount={products.length}
       />
 
-      <div className="w-full max-w-6xl px-4">
+      <div className="w-full max-w-6xl lg:px-0 px-2">
         {searchQuery && products.length === 0 ? (
           <NoResults />
         ) : (

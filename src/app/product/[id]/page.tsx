@@ -13,17 +13,18 @@ async function getProduct(id: string): Promise<Product> {
 
 export default async function ProductDetails({ params }: Props) {
   const product = await getProduct(params.id);
+  console.log(product)
   return (
     <div className="flex flex-col items-center justify-center p-6">
       <div className="lg:w-2/3 w-full flex flex-col mt-3">
         <div className="lg:w-3/4 flex flex-col items-center justify-center gap-4 self-center">
-          <h1 className="text-2xl font-bold mb-4 self-start">
+          <h1 className="text-3xl font-medium mb-4 self-start text-nhc-blue">
             {product.title}
           </h1>
-          <div className="relative w-48 h-48 mb-4 self-center">
+          <div className="relative w-48 h-48 mb-4 self-center flex items-center justify-center">
             <div className="rounded-lg p-4 flex items-center justify-center w-32 h-32 md:w-48 md:h-48 relative">
               <Image
-                src={product.thumbnail}
+                src={product.images[0]}
                 alt={product.title}
                 fill
                 sizes="(max-width: 768px) 128px, (max-width: 1200px) 192px, 192px"
@@ -42,12 +43,12 @@ export default async function ProductDetails({ params }: Props) {
           />
         </div>
         <div className="flex flex-col">
-          <p>Product Description</p>
-          <p className="my-2 text-gray-700">{product.description}</p>
+          <p className="text-lg">Product Description</p>
+          <p className="my-2 text-dark-gray leading-relaxed">{product.description}</p>
         </div>
         <div className="flex flex-col">
-          <h2 className="font-semibold mb-2">Product Images</h2>
-          <div className="grid grid-cols-3 gap-4">
+          <h2 className="text-lg mb-2">Product Images</h2>
+          <div className="flex flex-wrap lg:justify-start justify-center gap-6">
             {product.images.map((image, index) => (
               <div
                 key={index}
