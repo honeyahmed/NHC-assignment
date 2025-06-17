@@ -1,17 +1,26 @@
 import Image from "next/image";
-import { Product } from "@/types/product";
+import { Product, ProductsResponse } from "@/types/product";
 import ProductAttributes from "@/components/products/ProductAttributes";
 import { notFound } from "next/navigation";
+import { useEffect, useState } from "react";
 
-export default async function ProductDetails({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const product = await getProduct(params.id);
+interface Props {
+  params: {
+    id: string;
+  }
+}
+
+export default function ProductDetails({ params }: Props) {
+
+  const [product, setProduct] = useState<Product>()
+
+  useEffect(() => {
+    getProduct(params.id).then((res) => setProduct(res));
+  }, [params.id])
+
   return (
     <div className="flex flex-col items-center justify-center p-6">
-      <div className="lg:w-2/3 w-full flex flex-col mt-3">
+      {product && <div className="lg:w-2/3 w-full flex flex-col mt-3">
         <div className="lg:w-3/5 w-full flex flex-col  justify-center gap-4 self-center">
           <h1 className="text-3xl font-medium mb-4 self-start text-nhc-blue">
             {product.title}
@@ -62,7 +71,7 @@ export default async function ProductDetails({
             ))}
           </div>
         </div>
-      </div>
+      </div>}
     </div>
   );
 }
